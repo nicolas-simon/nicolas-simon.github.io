@@ -33,7 +33,7 @@
         });
         
         console.log('Loading '+'ws://'+adress+':'+port);
-        } catch (err) {console.log('Unable to connecte to websocket')};
+        } catch (err) {console.log('Unable to connect to websocket')};
         
         ros.on('connection', function() {
         console.log('Connected to websocket server.');
@@ -124,37 +124,37 @@ ext.StopRobot = function(direction,speed) {
         }catch(err) {console.log("Unable to Run StopRobot Block")}; 
 };
 
-ext.GetTurtlePositionX = function() {
-try{
-   var pose_listener = new ROSLIB.Topic({
-    ros : ros,
-    name : '/turtle1/pose',
-    messageType : 'turtlesim/Pose'
-  });
-  pose_listener.subscribe(function(message) {
-    console.log('/turtle1/pose/x:'+message.x);
-    positionX=message.x;
-    pose_listener.unsubscribe();
-  });
-  return positionX;
- }catch(err){console.log("Unable to Get Position.X")};
-};
-ext.GetTurtlePositionY = function() {
-try{
-   var pose_listener = new ROSLIB.Topic({
-    ros : ros,
-    name : '/turtle1/pose',
-    messageType : 'turtlesim/Pose'
-  });
+// ext.GetTurtlePositionX = function() {
+// try{
+//    var pose_listener = new ROSLIB.Topic({
+//     ros : ros,
+//     name : '/turtle1/pose',
+//     messageType : 'turtlesim/Pose'
+//   });
+//   pose_listener.subscribe(function(message) {
+//     console.log('/turtle1/pose/x:'+message.x);
+//     positionX=message.x;
+//     pose_listener.unsubscribe();
+//   });
+//   return positionX;
+//  }catch(err){console.log("Unable to Get Position.X")};
+// };
+// ext.GetTurtlePositionY = function() {
+// try{
+//    var pose_listener = new ROSLIB.Topic({
+//     ros : ros,
+//     name : '/turtle1/pose',
+//     messageType : 'turtlesim/Pose'
+//   });
   
-  pose_listener.subscribe(function(message) {
-    console.log('/turtle1/pose/y:'+message.y);
-    positionY=message.y;
-    pose_listener.unsubscribe();
-  });
-  return positionY;
- }catch(err){console.log("Unable to Get Position.Y")};
-};
+//   pose_listener.subscribe(function(message) {
+//     console.log('/turtle1/pose/y:'+message.y);
+//     positionY=message.y;
+//     pose_listener.unsubscribe();
+//   });
+//   return positionY;
+//  }catch(err){console.log("Unable to Get Position.Y")};
+// };
       
     // Block and block menu descriptions
     var descriptor = {
@@ -164,8 +164,8 @@ try{
             ["", "Connect to PC Adress: %s Port: %n","RosConnection","localhost","9090"],
             ["", "Move Turtle Direction %m.direction_menu Speed %n", "MoveRobot","Forward",0.2],
             ["", "Stop Turtle", "StopRobot"],
-            ["r","Turtlesim:position.X","GetTurtlePositionX"],
-            ["r","Turtlesim:position.Y","GetTurtlePositionY"],
+            // ["r","Turtlesim:position.X","GetTurtlePositionX"],
+            // ["r","Turtlesim:position.Y","GetTurtlePositionY"],
                        
         ],
         menus: {
